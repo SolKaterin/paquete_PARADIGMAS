@@ -1,0 +1,2 @@
+# paquete_PARADIGMAS
+ejerciciosParadigmas
