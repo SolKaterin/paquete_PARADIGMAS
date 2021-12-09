@@ -20,7 +20,6 @@ public class AnimalesObj {
         Animales.escucharTodos(Animales.getListaAnimales());
 
         //Ejercicios_5//
-
         String olulet = gato.nombre;
         String abbondanzieri = pato.nombre;
         String roco = perro.nombre;

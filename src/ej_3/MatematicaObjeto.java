@@ -12,5 +12,6 @@ public class MatematicaObjeto {
 
         Multiplicador multiplicador = Matemática.dameMultiplicador(14);
         System.out.println(multiplicador.multiplicar(5));
+
     }
 }

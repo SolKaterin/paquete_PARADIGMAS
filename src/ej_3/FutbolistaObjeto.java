@@ -19,6 +19,12 @@ public class FutbolistaObjeto {
         versaci.anotarGol();
         System.out.println(Futbolista.getMaximoGoleador().getNombre());
 
+        //Ejercicios_5//
+        String Lampe = lampe.nombre;
+        String Janson = janson.nombre;
+        String Versaci = versaci.nombre;
+        System.out.println(" Nombre1: " + Lampe + " Nombre2: "+ Janson + " Nombre3: " + Versaci );
+
     }
 
 }

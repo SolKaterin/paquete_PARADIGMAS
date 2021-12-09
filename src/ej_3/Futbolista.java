@@ -1,10 +1,10 @@
 package ej_3;
 //Ejercicio 3//
 public class Futbolista {
-    private String nombre;
-    private String equipo;
-    private int cantidadDeGoles;
-    private static Futbolista maximoGoleador = null;
+    protected String nombre;
+    protected String equipo;
+    protected int cantidadDeGoles;
+    protected static Futbolista maximoGoleador = null;
 
     public Futbolista(String nombre, String equipo, int cantidadDeGoles) {
         this.nombre = nombre;
