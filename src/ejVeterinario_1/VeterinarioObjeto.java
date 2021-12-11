@@ -2,6 +2,10 @@ package ejVeterinario_1;
 //Ejercicio 1//
 public class VeterinarioObjeto {
 
+    public VeterinarioObjeto(int i) {
+
+    }
+
     public static void main(String[] args) {
 
         VeterinarioAnimal roco = new VeterinarioAnimal();
@@ -35,5 +39,8 @@ public class VeterinarioObjeto {
         balto.describirAnimal();
         balto.comer(pollo);
         balto.comer(carne);
+    }
+
+    public void setVeterinarioObjeto(int i) {
     }
 }
