@@ -1,0 +1,10 @@
+# Default ignored files
+.settings/
+bin/
+/shelf/
+/.classpath
+/workspace.xml
+.gitignore
+.out/
+Paradigmas.iml
+.idea/*
