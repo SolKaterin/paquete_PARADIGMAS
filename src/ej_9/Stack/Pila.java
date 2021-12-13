@@ -58,5 +58,4 @@ public class Pila {
     public static void main(String[] args) {
         ejecutaLaOperacion(9,7,"resta");
     }
-
 }

@@ -1,68 +1,142 @@
 package ej_6.sorting;
 
+import java.util.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Objeto {
-    public static void main(String [] args) {
 
-        Ordenable par1 = new Par(1,3);
-        Ordenable par2 = new Par(5,7);
-        Ordenable par3 = new Par(2,4);
-        List<Object> list = new ArrayList<Object>();
-        list.add(par1);
-        list.add(par2);
-        list.add(par3);
+    public static void main(String[] args){
 
-        System.out.println("Lista de par desordenados:");
-        for (Object p : list) {
-            System.out.println(p);
+        List<Ordenable> personas = new ArrayList<Ordenable>();
+
+        personas.add(new Persona(33333333));
+        personas.add(new Persona(11111111));
+        personas.add(new Persona(22222222));
+
+        System.out.println("");
+
+        for(Ordenable p : personas){
+            Persona persona = (Persona) p;
+            System.out.println(persona.getDni());
         }
 
-        System.out.println("Lista de par ordenados:");
-        Buble.bubbleSort(list);
-        for (Object p : list) {
-            System.out.println(p);
+        for(int i = 0; i < personas.size(); i++){
+            for(int j = 0; j < personas.size(); j++){
+                if(personas.get(i).esMayor(personas.get(j))){
+                    Ordenable temp = personas.get(j);
+                    personas.set(j, personas.get(i));
+                    personas.set(i, temp);
+                }
+            }
         }
 
-        Ordenable parSuma1 = new ParSuma(9,7);
-        Ordenable parSuma2 = new ParSuma(4,2);
-        Ordenable parSuma3 = new ParSuma(7,3);
-        List<Object> sumaList = new ArrayList<Object>();
-        sumaList.add(parSuma1);
-        sumaList.add(parSuma2);
-        sumaList.add(parSuma3);
+        for(Ordenable p : personas){
+            Persona persona = (Persona) p;
+            System.out.println(persona.getDni());
+        }
+        System.out.println();
 
-        System.out.println("Lista de par suma desordenado:");
-        for (Object p : sumaList) {
-            System.out.println(p);
+        List<Ordenable> numeros = new ArrayList<Ordenable>();
+
+        numeros.add(new Num(7));
+        numeros.add(new Num(5));
+        numeros.add(new Num(9));
+
+        System.out.println("");
+        System.out.println("desordenado" + " \n ");
+        for(Ordenable o : numeros){
+            Num n = (Num) o;
+            System.out.println(n.num);
         }
 
-        System.out.println("Lista de par suma ordenado:");
-        Buble.bubbleSort(sumaList);
-        for (Object p : sumaList) {
-            System.out.println(p);
+        for(int i = 0; i < numeros.size(); i++){
+            for(int j = 0; j < numeros.size(); j++){
+                if(numeros.get(i).esMayor(numeros.get(j))){
+                    Ordenable temp = numeros.get(j);
+                    numeros.set(j, numeros.get(i));
+                    numeros.set(i, temp);
+                }if(((Num)numeros.get(i)).esIgual(numeros.get(j))){
+                    Ordenable temp2 = numeros.get(i);
+                    numeros.set(i, numeros.get(j));
+                    numeros.set(j, temp2);
+                }
+            }
+        }
+        System.out.println("");
+        System.out.println("ordenado" + " \n ");
+        for(Ordenable o : numeros){
+            Num n = (Num) o;
+            System.out.println(n.num);
+        }
+        System.out.println();
+
+        int[] nums = dameArrayAleatorio(7, false);
+
+        System.out.println("Array Desordenado: ");
+        for(int i = 0; i< nums.length; i++){
+            if(i < nums.length-1){
+                System.out.print(nums[i] + " , ");
+            }else{
+                System.out.print(nums[i]);
+            }
         }
 
-        Ordenable persona1 = new Persona(11223344, true);
-        Ordenable persona2 = new Persona(33445566, true);
-        Ordenable persona3 = new Persona(22334455, false);
-        List<Object> personaList = new ArrayList<Object>();
-        personaList.add(persona1);
-        personaList.add(persona2);
-        personaList.add(persona3);
+        bubbleSort(nums);
+    }
 
-        System.out.println("Lista de persona desordenado:");
-        for (Object p : personaList) {
-            System.out.println(p);
+    public static void bubbleSort(int[] array){
+        boolean desordenado = true;
+        boolean permuto;
+        int valor;
+        while(desordenado){
+            permuto = false;
+            for(int i = 1; i < array.length; i++){
+                if(array[i] < array[i-1]){
+                    valor = array[i-1];
+                    array[i-1] = array[i];
+                    array[i] = valor;
+                    permuto = true;
+                }
+            }
+            if(permuto == false) break;
         }
 
-        System.out.println("Lista de persona ordenado:");
-        Buble.bubbleSort(personaList);
-        for (Object p : personaList) {
-            System.out.println(p);
+        System.out.println("\nbuble sort: ");
+        for(int i = 0; i < array.length; i++){
+            if(i < array.length-1){
+                System.out.print(array[i] + " , ");
+            }else{
+                System.out.print(array[i]);
+            }
         }
 
     }
+    public static int[] dameArrayAleatorio(int tam, boolean ord){
+        Random rand = new Random();
+        int[] array = new int[tam];
 
+        int num, manera_orden;
+
+        if(ord){
+            manera_orden = rand.nextInt(3);
+            for(int i = 0; i < tam; i++){
+
+                if(manera_orden == 0){
+                    array[i] = (i + 1);
+                }else if(manera_orden == 1){
+                    array[i] = (i + 2) * 2;
+                }else{
+                    array[i] = (i + 3) * 3;
+                }
+            }
+            return array;
+        }else{
+            for(int i = 0; i < tam; i++){
+                num = rand.nextInt(1000);
+                array[i] = num;
+            }
+            return array;
+        }
+    }
 }

@@ -1,6 +1,6 @@
 package ej_8.Diccionario;
 
-import ej_8.Palabras;
+import ej_8.Palabras.Palabras;
 
 abstract public class Buscador {
 
