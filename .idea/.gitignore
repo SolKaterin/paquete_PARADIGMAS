@@ -2,6 +2,6 @@
 /shelf/
 /workspace.xml
 .gitignore
-/idea
 .out/
 Paradigmas.iml
+*.idea/
